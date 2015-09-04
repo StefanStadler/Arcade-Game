@@ -1,0 +1,10 @@
+body {
+    text-align: center;
+}
+
+h1, #score {
+	text-align: center;
+
+	margin-top: 20px;
+	font-family: 'Permanent Marker', cursive;
+}
