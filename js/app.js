@@ -53,18 +53,19 @@ Player.prototype.init = function() {
 };
 // Renders the Player Image on the canvas
 Player.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-// Updates the players Posiiton according to the new position
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  }
+  // Updates the players Posiiton according to the new position
 Player.prototype.update = function(dt) {
+  var self = this; // This is required to bid the Player object within the allEnemies array objec
   allEnemies.forEach(function(enemy) {
     // In case player is too close to an Enemy Player is sent back to starting position
-    if (player.isTooClose(enemy, player)) {
-      player.x = 200;
-      player.y = 415;
+    if (self.isTooClose(enemy, self)) {
+      self.x = 200;
+      self.y = 415;
     }
   });
-};
+}
 
 
 //    Canvas Axes and scalar positions
@@ -110,7 +111,7 @@ Player.prototype.handleInput = function() {
     this.init();
   }
 
-};
+}
 
 // create Enemy and Player instances
 var allEnemies = [new Enemy(), new Enemy(), new Enemy()];
